@@ -1,7 +1,7 @@
 export class Passenger {
     PassengerId! :String;
     Survived! : String;
-    PClass! : String;
+    Pclass! : String;
     Name! : String;
     Sex! : String;
     Age! : String;

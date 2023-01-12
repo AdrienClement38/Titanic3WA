@@ -1,12 +1,42 @@
-<div *ngFor='let passenger of passengers'>
-    <p>{{passenger.PassengerId}}</p>
-    <p>{{passenger.Survived}}</p>
-    <p>{{passenger.PClass}}</p>
-    <p>{{passenger.Name}}</p>
-    <p>{{passenger.Sex}}</p>
-    <p>{{passenger.SibSp}}</p>
-    <p>{{passenger.Parch}}</p>
-    <p>{{passenger.Fare}}</p>
-    <p>{{passenger.Cabin}}</p>
-    <p>{{passenger.Embarked}}</p>
+<h1 style="text-align: center; text-decoration: underline; margin-top: 1rem;">Les Survivants du Titanic</h1>
+
+<div style=" display: flex; flex-wrap: wrap; justify-content: space-around; margin-top: 30px; margin-bottom: 30px;">
+    <button type="button" class="btn btn-outline-success my-2 my-sm-0 m-4" (click)="filterChartByAge()">Survivants par age</button>
+    <button type="button" class="btn btn-outline-success my-2 my-sm-0 m-4" (click)="filterPassengersAgeStat()">Statistiques age / genre</button>
+    <button type="button" class="btn btn-outline-success my-2 my-sm-0 m-4" (click)="filterChartBySex()">Survivants par genre</button>
+    <button type="button" class="btn btn-outline-success my-2 my-sm-0 m-4" (click)="filterPassengersClassStat()">Statistiques genre / classe</button>
+    <button type="button" class="btn btn-outline-success my-2 my-sm-0 m-4" (click)="filterChartByClass()">Survivants par classe</button>
 </div>
+
+<canvas baseChart
+      [data]="barChartData"
+      type="bar"
+      style="width: 60%; max-height: 30rem; margin-left: auto; margin-right: auto; margin-top: 20px; margin-bottom: 20px;">
+</canvas>
+
+<div id="statisticsContener"></div>
+
+<h2 style="text-align: center; text-decoration: underline; margin-top: 50px; margin-bottom: 50px;">Liste des passagers embarqués</h2>
+
+<app-search (searchedResult)="search($event)"></app-search>
+
+<div style=" display: flex; flex-wrap: wrap; justify-content: center; margin-top: 2rem">
+    <div class="card mb-3" style="width: 18rem; margin-left: 1rem;  box-shadow: 2px 2px 3px 1px;" *ngFor='let passenger of passengers'>
+        <div class="card-body">
+            <h5 class="card-title">{{passenger.Name}}</h5>
+            <p class="card-text">Sexe du passager : {{passenger.Sex}}</p>
+            <p class="card-text">N° de passager : {{passenger.PassengerId}}</p>
+            <p class="card-text" *ngIf = "passenger.Survived == '1' ">Survivant</p>
+            <p class="card-text" *ngIf = "passenger.Survived == '0' ">Décédé</p>
+            <p class="card-text">Classe du passager : {{passenger.Pclass}}</p>
+            <p class="card-text">N° de ticket : {{passenger.Ticket}}</p>
+            <p class="card-text" *ngIf= "passenger.Cabin">N° de cabine : {{passenger.Cabin}}</p>
+            <!-- <p>{{passenger.SibSp}}</p>
+            <p>{{passenger.Parch}}</p>
+            <p>{{passenger.Fare}}</p>
+            <p>{{passenger.Embarked}}</p> -->
+        </div>
+    </div>
+</div>
+
+  

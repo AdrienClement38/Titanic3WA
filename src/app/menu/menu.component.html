@@ -1,2 +1,13 @@
-<button>Connection</button>
-<button>Déconnection</button>
+<!-- <button>Connection</button>
+<button>Déconnection</button> -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <ul class="navbar-nav mr-auto">
+        <li *ngIf="!isLoggedIn" class="nav-item active">
+                <a class="nav-link" routerLink="/login" routerLinkActive="active">Se connecter</a> 
+        </li>
+        <li *ngIf="isLoggedIn" class="nav-item">
+            <a class="nav-link" (click)="logout()">Se déconnecter</a>
+        </li>
+    </ul>
+</nav>
+
