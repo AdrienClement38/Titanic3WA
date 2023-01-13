@@ -113,7 +113,7 @@ export class HomeComponent implements OnInit {
           data: dataset, 
           label: 'Survivants par age', 
           backgroundColor: [
-            'rgba(44, 165, 199, 0.7)'
+            'rgba(26, 184, 44, 0.7)'
             ]
           }],
         } 

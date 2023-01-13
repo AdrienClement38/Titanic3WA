@@ -2,7 +2,7 @@
     <p *ngIf="error">{{ error }}</p>
 
     <div class="card-body">
-        <h1 class="card-title">Connection</h1>
+        <h1 class="card-title">Inscription</h1>
         <form (ngSubmit) = "onSubmit(formSearch)" #formSearch="ngForm">
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email : </label>
@@ -14,8 +14,8 @@
                 <input name="password" ngModel #password="ngModel" required minlength="4" type="password"
                     class="form-control" id="exampleInputPassword1">
             </div>
-            <button type="submit" class="btn btn-primary" style="margin-right: 1rem;">Se connecter</button>
-            <button routerLink="/register" class="btn btn-primary">S'enregistrer</button>
+            <button type="submit" class="btn btn-primary" style="margin-right: 1rem;">S'inscrire</button>
+            <button routerLink="/login" class="btn btn-primary">Se connecter</button>
         </form>
         <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert">
 

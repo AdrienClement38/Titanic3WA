@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class AuthService {
 
 
-  loginUrl = "login/"
+  loginUrl = "auth/"
   baseUrl = environment.api;
   apiUrl = encodeURI(this.baseUrl + this.loginUrl);
 
@@ -19,7 +19,12 @@ export class AuthService {
 
   auth(email: string, password: string): Observable<User> {
     
-    return this.http.post<User>(this.apiUrl, {email, password});
+    return this.http.post<User>(this.apiUrl + "login", {email, password});
+  }
+
+  subscribe(email: string, password: string): Observable<User> {
+    
+    return this.http.post<User>(this.apiUrl + "subscribe", {email, password});
   }
 
   isAuthenticated(): boolean {

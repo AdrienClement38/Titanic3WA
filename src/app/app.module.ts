@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { MenuComponent } from './menu/menu.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgChartsModule } from 'ng2-charts';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { NgChartsModule } from 'ng2-charts';
     LoginComponent,
     SearchComponent,
     HomeComponent,
-    MenuComponent
+    MenuComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
